@@ -52,11 +52,15 @@ _IterativePolicyEvaluation_ then _ValueIteration_. We can see from the output
 how the agent moves through the gridworld and the number of steps taken.
 
 Since there are 2 goal states, the agent will prioritize the goal state that is
-closest to the start location.
+closest to the start location. As the random agent is not determinstic and
+optimal, it almost always performs poorly compared to the 2 algorithm.
+
+<img src="image-2.png" alt="image" style="width:300px;height:auto;
+margin-left:auto;margin-right:auto;display:block;">
 
 ### Use of program
 
-To change the starting position of the program, one can modify line _180_ of the
+To change the starting position of the program, one can modify line _184_ of the
 code to change the starting position.
 
 ```python

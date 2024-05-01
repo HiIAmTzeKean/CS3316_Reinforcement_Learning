@@ -180,20 +180,19 @@ class ValueIteration(Agent):
     
 
 if __name__ == "__main__":
-    grid_success = False
-    while not grid_success:
-        try:  
-            grid = Gridworld(start=30)
-            grid_success = True
-        except:
-            print("Start cannot be the goal (1,35). Try again.") 
+    try:
+        grid = Gridworld(start=30)
+        agent = RandomAgent(grid, 0.9)
+        agent.start()
+        agent = IterativePolicyEvaluation(grid=grid, gamma=0.9,
+                                        max_iteration=1000,theta=0.00001)
+        agent.train()
+        agent.start()
+        agent = ValueIteration(grid=grid, gamma=0.99, theta=0.00001)
+        agent.train()
+        agent.start()
+    except:
+        print("Start cannot be the goal (1,35). Try again.")
+        
     
-    agent = RandomAgent(grid, 0.9)
-    agent.start()
-    agent = IterativePolicyEvaluation(grid=grid, gamma=0.9,
-                                      max_iteration=1000,theta=0.00001)
-    agent.train()
-    agent.start()
-    agent = ValueIteration(grid=grid, gamma=0.99, theta=0.00001)
-    agent.train()
-    agent.start()
+    
